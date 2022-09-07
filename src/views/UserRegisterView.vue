@@ -1,8 +1,7 @@
 <template>
     <div>
-      <div>
-
-        <form action="">
+      <form v-on:submit.prevent="submitForm">
+       <div>
                 <div>
                   <i class="icon-phone"></i>
                   <b>연락처</b><br />
@@ -57,20 +56,21 @@
                   <input
                     type="text"
 
-                    v-model="nearest_station"
+                    v-model="nearestStation"
                     name="station"
 
                   />
                 </div>
                 <div>
-                  <input type="submit" @click="myFunction" value="Register" />
+                  <input type="submit" @click="post" value="Register" />
                 </div>
-              </form>
+
       </div>
+    </form>
     </div>
 </template>
 
-<script>
+<!-- <script>
 export default {
   data() {
     return {
@@ -82,8 +82,60 @@ export default {
     }
   },
   methods: {
-    myFunction() {
+    post: function() {
+      this.axios.post('/auth/joinProc',
+        {
+          apartname: 'this.apartname',
+          building: 'this.building',
+          unit: 'this.unit',
+          phonenumber: 'this.phonenumber',
+          nearestStation: 'this.nearest_station'
+        })
+        .then(response => {
+          console.log(response.data)
+          alert('회원가입이 완료 되었습니다!')
+        })
+        .catch(function(error) {
+          console.log(error)
+          alert('통신에 문제가 있습니다.')
+        })
+    }
+  }
+}
+</script> -->
 
+<script>
+import axios from 'axios'
+
+export default {
+  data: function() {
+    return {
+      username: '',
+      password: '',
+      unit: '',
+      phonenumber: '',
+      nearestStation: ''
+    }
+  },
+  methods: {
+    submitForm: function() {
+      const url = 'http://localhost:7777/auth/joinProc'
+      const data = {
+        apartname: this.apartname,
+        building: this.building,
+        unit: this.unit,
+        phonenumber: this.phonenumber,
+        nearestStation: this.nearestStation
+      }
+      axios.post(url, data)
+        .then(function(response) {
+          console.log(response)
+          alert('회원가입 성공!')
+        })
+        .catch(function(error) {
+          console.log(error)
+          alert('통신 실패')
+        })
     }
   }
 }

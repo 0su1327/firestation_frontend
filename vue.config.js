@@ -25,6 +25,6 @@ module.exports = {
     //     changeOrigin: true
     //   }
     // }
-    proxy : 'http://localhost:7777'
+    proxy: 'http://localhost:7777'
   }
 }

@@ -19,8 +19,8 @@ export default {
   data: () => ({
     b1: '',
     a: '',
-    c: '',
-    
+    c: ''
+
   }),
   methods: {
     button () {
