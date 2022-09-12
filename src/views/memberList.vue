@@ -63,7 +63,7 @@ export default {
   setup() {},
   created() {},
   mounted() {
-    axios.get('http://localhost:7777/auth/memberList')
+    axios.get('http://localhost:7777/memberList/C')
       .then((res) => {
         this.dataSet = res.data
       })

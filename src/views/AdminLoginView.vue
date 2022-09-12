@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     submitForm3: function() {
-      const url = 'http://localhost:7777/auth/FirejoinProc'
+      const url = 'http://localhost:7777/auth/loginProc'
       const data = {
         firestationname: this.firestationname,
         firestationPw: this.firestationPw
@@ -37,7 +37,8 @@ export default {
       axios.post(url, data)
         .then(function(response) {
           console.log(response)
-          window.location.href = 'http://localhost:7777/admin/list'
+          alert('성공')
+          // window.location.href = 'http://localhost:7777/admin/list'
         })
         .catch(function(error) {
           console.log(error)
