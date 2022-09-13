@@ -7,7 +7,6 @@
                   <b>연락처</b><br />
                   <input
                     type="tel"
-                    v-bind:id ="phonenumber"
                     v-model="phonenumber"
                     pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
                     placeholder="010-1234-5678"
@@ -20,7 +19,6 @@
 
                   <input
                     type="text"
-
                     v-model="apartname"
                     placeholder=" oo아파트"
                     style="width: 280px"
@@ -33,7 +31,6 @@
 
                   <input
                     type="number"
-
                     v-model="building"
                     placeholder="(숫자)동"
                     style="width: 130px"
@@ -41,7 +38,6 @@
                   /
                   <input
                     type="number"
-
                     v-model="unit"
                     style="width: 130px"
                     placeholder="(숫자)호"
@@ -55,7 +51,6 @@
                   <b id="info"></b>
                   <input
                     type="text"
-
                     v-model="nearestStation"
                     name="station"
 
@@ -105,6 +100,7 @@ export default {
 </script> -->
 
 <script>
+import loc from '../../src/assets/js/location'
 import axios from 'axios'
 
 export default {
@@ -137,6 +133,7 @@ export default {
           alert('통신 실패')
         })
     }
+
   }
 }
 </script>
