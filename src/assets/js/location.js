@@ -82,10 +82,8 @@ function success(position) {
   //   alert("여기까지 왔어요");
   //   alert(min_firestation);
   // console.log(document.getElementById("a"));
-  document.getElementById('a').value = minFirestation // value 값을 넘겨주어서 input으로 받을수 있게 됨!!! 그 후 value를 넘겨줄 수 있나??
-  document.getElementById('firestation').innerText = minFirestation + '소방서로 배정되었습니다!'
-
-  localStorage.setItem('min_firestation', minFirestation)
+  document.getElementById('firestation').value = minFirestation // value 값을 넘겨주어서 input으로 받을수 있게 됨!!! 그 후 value를 넘겨줄 수 있나??
+  document.getElementById('info').innerText = minFirestation + '소방서로 배정되었습니다!'
 }
 function error() {
   alert('cannot use geolocation api!')

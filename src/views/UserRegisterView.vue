@@ -50,10 +50,10 @@
                   <b>정보 공유 소방서 등록</b><br />
                   <b id="info"></b>
                   <input
+                    id="firestation"
                     type="text"
-                    v-model="nearestStation"
+                    hidden value =""
                     name="station"
-
                   />
                 </div>
                 <div>
@@ -116,12 +116,13 @@ export default {
   methods: {
     submitForm: function() {
       const url = 'http://localhost:7777/auth/joinProc'
+      const form = document.getElementById('firestation')
       const data = {
         apartname: this.apartname,
         building: this.building,
         unit: this.unit,
         phonenumber: this.phonenumber,
-        nearestStation: this.nearestStation
+        nearestStation: form.nodeValue
       }
       axios.post(url, data)
         .then(function(response) {
